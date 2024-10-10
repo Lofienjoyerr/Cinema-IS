@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход{% endblock %}
+
+{% block styles %}{% load static %}
+<link rel="stylesheet" href="{% static 'styles/loginform.css' %}">
+{% endblock %}
+
+{% block content%}{% load static %}
+<div class="root" style="background-image: url('{% static 'images/regbg.png' %}');">
+    <div class="signForm-wrapper">
+        <img class="logo" src="{% static 'images/onair-logo.png' %}">
+        <form method="POST" class="signForm">
+            {% csrf_token %}
+            <p class="title">Войдите в систему, чтобы начать</p>
+            <input name="username" type="text" class="default-input" placeholder="Логин" required>
+            <input name="password" type="password" class="default-input" placeholder="Пароль" required>
+            <input type="submit" class="submit-butt" value="Войти">
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+        </form>
+        <div class="links-wrapper">
+            <a class="back-link" href="reg">Зарегистрироваться</a>
+            <a class="back-link" href="/">Вернуться на главную страницу</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

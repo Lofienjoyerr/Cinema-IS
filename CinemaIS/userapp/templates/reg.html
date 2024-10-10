@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block styles %}{% load static %}
+<link rel="stylesheet" href="{% static 'styles/regform.css' %}">
+{% endblock %}
+
+{% block content%}{% load static %}
+<div class="root" style="background-image: url('{% static 'images/regbg.png' %}');">
+    <div class="regForm-wrapper">
+        <img class="logo" src="{% static 'images/onair-logo.png' %}">
+        <form method="POST" class="regForm">
+            {% csrf_token %}
+            <p class="title">Зарегистрируйтесь, чтобы начать</p>
+            <input name="username" type="text" class="default-input" placeholder="Логин" required>
+            <input name="phone" type="tel" class="default-input" placeholder="Номер телефона" required>
+            <input name="email" type="email" class="default-input" placeholder="Эл. почта" required>
+            <input name="password1" type="password" class="default-input" placeholder="Пароль" required>
+            <input name="password2" type="password" class="default-input" placeholder="Повторите пароль" required>
+            <input type="submit" class="submit-butt" value="Зарегистрировать">
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+        </form>
+        <div class="links-wrapper">
+            <a class="back-link" href="login">Вернуться к логину</a>
+            <a class="back-link" href="/">Вернуться на сайт</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

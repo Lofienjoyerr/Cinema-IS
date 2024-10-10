@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+
+{% block title %}Выбор билетов{% endblock %}
+
+{% block styles %}{% load static %}
+<link rel="stylesheet" href="{% static 'styles/session.css' %}">
+{% endblock %}
+
+{% block content %}{% load static %}
+<div class="root">
+    <section class="sect-header">
+        <div class="header-wrapper">
+            <a class="header-back-link" href="movie?id={{ session.movie.id }}">
+                <div class="header-back">
+                    <svg class="header-back-svg" width="36" height="36" viewBox="0 0 36 36" fill="none"
+                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M20.5304 11L21.5911 12.0607L16.1214 17.5303L21.5911 23L20.5304 24.0607L14.0001 17.5303L20.5304 11Z"
+                                  fill="white"></path>
+                        </g>
+                    </svg>
+                    <p class="header-back-text">назад</p>
+                </div>
+            </a>
+            <div class="session-info">
+                <img class="session-info-img" src="{{ session.movie.img.url }}">
+                <div class="session-info-data">
+                    <button class="session-info-data-format">{{ session.format }}</button>
+                    <p class="session-info-data-name">{{ session.movie.name }}</p>
+                    <p class="session-info-data-sub_info">{{ session.room }}</p>
+                    <p class="session-info-data-sub_info">{{ session.datetime|date:'d E, H:i' }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sect-main">
+        <div class="main-wrapper">
+            <div class="room">
+                {% for i in range11 %}
+                {% if i > 0 %}
+                <div class="row">
+                    {% if i != 10 %}
+                    {% for j in range24 %}
+                    {% if j > 0 and j < 23 %}
+                    <svg class="place" viewBox="0 0 25 25" height="28" width="28" fill="white">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M20.4937 9.68359C19.5337 9.68359 18.6937 10.5236 18.6937 11.4836V15.6836H6.69375V11.4836C6.69375 10.5236 5.85375 9.68359 4.89375 9.68359C3.93375 9.68359 3.09375 10.4036 3.09375 11.4836V20.4836H6.69375H18.6937H22.2937V11.4836C22.2937 10.4036 21.4537 9.68359 20.4937 9.68359Z"></path>
+                        <path
+                                d="M7.89219 11.4836V14.4836H17.4922V11.4836C17.4922 10.0436 18.5722 8.84359 19.8922 8.60359V6.08359C19.8922 4.76359 18.8122 3.68359 17.4922 3.68359H7.89219C6.57219 3.68359 5.49219 4.76359 5.49219 6.08359V8.48359C6.81219 8.72359 7.89219 10.0436 7.89219 11.4836Z"></path>
+                    </svg>
+                    {% else %}
+                    <span class="places-number">{{ i }}</span>
+                    {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    {% for j in range24 %}
+                    {% if j > 0 and j < 23 %}
+                    <svg class="place" viewBox="0 0 25 25" height="28" width="28" fill="white">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M20.4937 9.68359C19.5337 9.68359 18.6937 10.5236 18.6937 11.4836V15.6836H6.69375V11.4836C6.69375 10.5236 5.85375 9.68359 4.89375 9.68359C3.93375 9.68359 3.09375 10.4036 3.09375 11.4836V20.4836H6.69375H18.6937H22.2937V11.4836C22.2937 10.4036 21.4537 9.68359 20.4937 9.68359Z"></path>
+                        <path
+                                d="M7.89219 11.4836V14.4836H17.4922V11.4836C17.4922 10.0436 18.5722 8.84359 19.8922 8.60359V6.08359C19.8922 4.76359 18.8122 3.68359 17.4922 3.68359H7.89219C6.57219 3.68359 5.49219 4.76359 5.49219 6.08359V8.48359C6.81219 8.72359 7.89219 10.0436 7.89219 11.4836Z"></path>
+                    </svg>
+                    {% elif j == 0 %}
+                    <span class="places-number" style="margin-left: -9px;">{{ i }}</span>
+                    {% elif j == 23 %}
+                    <span class="places-number" style="margin-right: -9px;">{{ i }}</span>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                {% else %}
+                <div class="first-row">
+                    {% for j in range24 %}
+                    {% if j == 0 or j == 23 %}
+                    <span class="places-number">&nbsp;</span>
+                    {% else %}
+                    <span class="places-number">{{ j }}</span>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="sect-foot">
+        <div class="foot-wrapper">
+            <div class="places-help">
+                <div class="help-pair">
+                    <svg viewBox="0 0 25 25" fill="white" width="28" height="28">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M20.4937 9.68359C19.5337 9.68359 18.6937 10.5236 18.6937 11.4836V15.6836H6.69375V11.4836C6.69375 10.5236 5.85375 9.68359 4.89375 9.68359C3.93375 9.68359 3.09375 10.4036 3.09375 11.4836V20.4836H6.69375H18.6937H22.2937V11.4836C22.2937 10.4036 21.4537 9.68359 20.4937 9.68359Z"></path>
+                        <path
+                                d="M7.89219 11.4836V14.4836H17.4922V11.4836C17.4922 10.0436 18.5722 8.84359 19.8922 8.60359V6.08359C19.8922 4.76359 18.8122 3.68359 17.4922 3.68359H7.89219C6.57219 3.68359 5.49219 4.76359 5.49219 6.08359V8.48359C6.81219 8.72359 7.89219 10.0436 7.89219 11.4836Z"></path>
+                    </svg>
+                    <p class="help-text">Свободные</p>
+                </div>
+                <div class="help-pair">
+                    <svg viewBox="0 0 25 25" fill="red" width="28" height="28">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M20.4937 9.68359C19.5337 9.68359 18.6937 10.5236 18.6937 11.4836V15.6836H6.69375V11.4836C6.69375 10.5236 5.85375 9.68359 4.89375 9.68359C3.93375 9.68359 3.09375 10.4036 3.09375 11.4836V20.4836H6.69375H18.6937H22.2937V11.4836C22.2937 10.4036 21.4537 9.68359 20.4937 9.68359Z"></path>
+                        <path
+                                d="M7.89219 11.4836V14.4836H17.4922V11.4836C17.4922 10.0436 18.5722 8.84359 19.8922 8.60359V6.08359C19.8922 4.76359 18.8122 3.68359 17.4922 3.68359H7.89219C6.57219 3.68359 5.49219 4.76359 5.49219 6.08359V8.48359C6.81219 8.72359 7.89219 10.0436 7.89219 11.4836Z"></path>
+                    </svg>
+                    <p class="help-text">Выбранные</p>
+                </div>
+                <div class="help-pair">
+                    <svg viewBox="0 0 25 25" fill="gray" width="28" height="28">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M20.4937 9.68359C19.5337 9.68359 18.6937 10.5236 18.6937 11.4836V15.6836H6.69375V11.4836C6.69375 10.5236 5.85375 9.68359 4.89375 9.68359C3.93375 9.68359 3.09375 10.4036 3.09375 11.4836V20.4836H6.69375H18.6937H22.2937V11.4836C22.2937 10.4036 21.4537 9.68359 20.4937 9.68359Z"></path>
+                        <path
+                                d="M7.89219 11.4836V14.4836H17.4922V11.4836C17.4922 10.0436 18.5722 8.84359 19.8922 8.60359V6.08359C19.8922 4.76359 18.8122 3.68359 17.4922 3.68359H7.89219C6.57219 3.68359 5.49219 4.76359 5.49219 6.08359V8.48359C6.81219 8.72359 7.89219 10.0436 7.89219 11.4836Z"></path>
+                    </svg>
+                    <p class="help-text">Занятые</p>
+                </div>
+            </div>
+            <div class="purchase hidden">
+                <p class="price"></p>
+                <button id="purchase-button" class="purchase-button">Купить</button>
+            </div>
+            <div class="empty">Корзина пуста</div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
+
+{% block scripts %}{% load static %}
+<script>
+    let occ_places = []
+    let places = document.querySelectorAll('.place:not(.occ)');
+    let bucket = document.querySelector('.empty');
+    let purchase = document.querySelector('.purchase');
+    let price = document.querySelector('.price');
+    let cur_price = 0;
+
+    let a = JSON.stringify({{ occ_places }})
+    places.forEach((place, index) => {
+        index += 1
+        let row = Math.ceil(index / 22)
+        let seat = index
+        seat -= (row - 1) * 22
+
+        let b = JSON.stringify([row, seat]);
+        let c = a.indexOf(b);
+        if (c != -1){
+            place.classList.add('occ')
+        }
+    })
+
+    places.forEach((place, index) => place.onclick = function(e) {
+        if (!place.classList.contains('occ')){
+            if (occ_places.includes(index)){
+            occ_places.splice(occ_places.indexOf(index), 1);
+            place.classList.remove("red");
+            cur_price -= {{ session.price }}
+            price.textContent = cur_price + ' ₽'
+            if (occ_places.length == 0){
+                    bucket.classList.remove('hidden')
+                    purchase.classList.add('hidden')
+            }
+        }
+        else{
+            if (occ_places.length < 5){
+                if (occ_places.length == 0){
+                    bucket.classList.add('hidden')
+                    purchase.classList.remove('hidden')
+                }
+                occ_places.push(index);
+                place.classList.add("red");
+                cur_price += {{ session.price }}
+                price.textContent = cur_price + ' ₽'
+            }
+            else{
+                alert('Выбрано максимальное количество мест');
+
+            }
+        }
+        }
+    });
+
+purchase_button = document.querySelector('.purchase-button');
+purchase_button.addEventListener('click', (e) => {
+    fetch('session', {
+        method: 'POST',
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            'X-CSRFToken': '{{ csrf_token }}',
+        },
+        body: JSON.stringify({
+            occ_places: occ_places,
+            sessionId: {{ session.id }}
+        })
+    })
+    .then(response => {
+        location.replace(response.url)
+    })
+})
+</script>
+{% endblock %}

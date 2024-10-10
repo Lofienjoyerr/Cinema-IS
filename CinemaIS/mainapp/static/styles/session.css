@@ -1,0 +1,184 @@
+.root{
+    background-color: rgb(4, 0, 30);
+
+}
+
+.sect-header{
+    height: 25vh;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+}
+.header-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.header-back-link{
+    text-decoration: none;
+
+}
+.header-back{
+    display: flex;
+    align-items: center;
+}
+.header-back-svg{
+    margin-left: -50px;
+
+}
+.header-back-text{
+    color: white;
+    font: 1vw Rubik;
+    margin: 0;
+    margin-left: -5px;
+}
+.session-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+}
+.session-info-img{
+    height: 130px;
+
+}
+.session-info-data{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.session-info-data p{
+    margin: 0;
+
+}
+.session-info-data-format{
+    background-color: black;
+    border: 1px white solid;
+    border-radius: 10px;
+    color: white;
+    font: 1.4vw Ubuntu-bold;
+    padding: 5px 0;
+    width: 60%;
+}
+.session-info-data-name{
+    color: white;
+    font: 2vw Ubuntu-bold;
+}
+.session-info-data-sub_info{
+    color: white;
+    font: 1vw Rubik;
+}
+
+
+.sect-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 63vh;
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+}
+.main-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+.room{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.row{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.first-row{
+    display: grid;
+    grid-template-columns: 9px repeat(22, 28px) 9px;
+    grid-template-rows: 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 0px;
+}
+.first-row span{
+    display: flex;
+    justify-content: center;
+}
+.places-number{
+    color: gray;
+    font-family: Ubuntu;
+}
+.place{
+    cursor: pointer;
+
+}
+.place.red{
+    fill: red;
+
+}
+.place.occ{
+    fill: gray;
+    cursor: default;
+}
+
+.sect-foot{
+    display: flex;
+    align-items: center;
+    height: 12vh;
+    padding: 0 50px;
+}
+.foot-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.places-help{
+    display: flex;
+    gap: 30px;
+}
+.help-pair{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.help-text{
+    color: white;
+    font: 20px Ubuntu;
+}
+.purchase{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.purchase.hidden{
+    display: none;
+
+}
+.price{
+    font: 20px Ubuntu;
+    color: white;
+}
+.purchase-button{
+    background-color: red;
+    color: white;
+    font: 18px Ubuntu;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.empty{
+    display: flex;
+    align-items: center;
+    color: gray;
+    font: 20px Rubik;
+}
+.empty.hidden{
+    display: none;
+
+}

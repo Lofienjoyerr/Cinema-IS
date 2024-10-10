@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block styles %}{% load static %}
+<link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+{% endblock %}
+
+{% block content%}{% load static %}
+<img class="bg" src="{% static 'images/regbg.png' %}">
+<div class="root">
+    <section class="sect-header">
+        <div class="header-wrapper">
+            <div class="header-left">
+                <a href="/"><img class="header-logo" src="{% static 'images/onair-logo.png' %}"></a>
+                <a class="header-link" href="/#pop-content">Популярное</a>
+                <a class="header-link" href="/#act-content">Экшен</a>
+                <a class="header-link" href="/#sad-content">Драма</a>
+                <a class="header-link" href="/#fun-content">Комедия</a>
+            </div>
+            <div class="header-right">
+                <a class="header-right-link" href="profile">
+                    <div class="header-profile">
+                        <img class="header-sign-img" src="{% static 'images/carbon_user-avatar.svg' %}">
+                        Профиль
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="sect-main">
+        <div class="left-col">
+            <img class="avatar" src="{{ user.avatar.url }}">
+            <p class="profile-email">{{ user.email }}</p>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="image-upload">
+                    <label for="file-input">
+                        <img class="change-avatar" src="{% static 'images/change avatar.svg' %}">
+                    </label>
+
+                    <input name="new_avatar" id="file-input" type="file" onchange="this.form.submit();">
+                </div>
+            </form>
+            <a href="logout" class="logout-link">
+                <div class="logout">
+                    <img class="logout-svg" src="{% static 'images/icon.svg' %}">
+                    Выйти из аккаунта
+                </div>
+            </a>
+        </div>
+        <img class="main-line" src="{% static 'images/line.svg' %}">
+        <div class="right-col">
+            <p class="right-col-title">Ваши сеансы</p>
+            <div class="my-sessions-wrapper">
+                {% for room in rooms %}
+                <div class="ms-row">
+                    <div class="room-info">
+                        {{ room }}
+                        {% if room.is_vip %}
+                        <br>
+                        <p class="vip">VIP</p>
+                        {% endif %}
+                    </div>
+                    {% for session in sessions %}
+                    {% if session.room.id == room.id %}
+                    <div class="session">
+                        <p class="format">{{ session.format }}</p>
+                        <div class="session-data">
+                            <p class="session-info">{{ session.datetime|date:'d E, H:i' }}</p>
+                            {% for occ_place in occ_places %}
+                            {% if occ_place.session_id == session.id %}
+                            <p class="session-info">{{ occ_place }}</p>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="sect-foot">
+        <div class="foot-wrapper">
+            <div class="foot-left">
+                <img class="foot-logo" src="{% static 'images/onair-logo-foot.png' %}">
+                <p class="foot-desc">"Наш онлайн кинотеатр –
+                    это тысячи фильмов и сериалов в HD качестве,
+                    доступные в любое время на любом устройстве.
+                    Окунитесь в мир кино без рекламы и лишних ожиданий!"
+                </p>
+                <div class="foot-soc">
+                    <a href="https://facebook.com"><img src="{% static 'images/facebook.svg' %}"></a>
+                    <a href="https://instagram.com"><img src="{% static 'images/instagramm.svg' %}"></a>
+                    <a href="https://twitter.com"><img src="{% static 'images/twitter.svg' %}"></a>
+                    <a href="https://youtube.com"><img src="{% static 'images/youtube.svg' %}"></a>
+                </div>
+                <p class="foot-author">Copyright © 2024 КубГТУ. All rights reserved.</p>
+            </div>
+            <div class="foot-right">
+                <div class="foot-profile-col">
+                    <div class="foot-profile">
+                        <img class="foot-profile-img" src="{% static 'images/carbon_user-avatar.svg' %}">
+                        Профиль
+                    </div>
+                    <a class="foot-link" href="profile">Профиль</a>
+                </div>
+                <div class="foot-film-col">
+                    <p class="foot-header">Популярное</p>
+                    {% for movie in top_movies %}
+                    <a href="movie?id={{ movie.movie_id }}"><p class="foot-link">{{ movie.movie.name }}</p></a>
+                    {% endfor %}
+                </div>
+                <div class="foot-film-col">
+                    <p class="foot-header">Экшен</p>
+                    {% for movie in act_movies %}
+                    <a href="movie?id={{ movie.movie_id }}"><p class="foot-link">{{ movie.movie.name }}</p></a>
+                    {% endfor %}
+                </div>
+                <div class="foot-film-col">
+                    <p class="foot-header">Драма</p>
+                    {% for movie in sad_movies %}
+                    <a href="movie?id={{ movie.movie_id }}"><p class="foot-link">{{ movie.movie.name }}</p></a>
+                    {% endfor %}
+                </div>
+                <div class="foot-film-col">
+                    <p class="foot-header">Комедия</p>
+                    {% for movie in fun_movies %}
+                    <a href="movie?id={{ movie.movie_id }}"><p class="foot-link">{{ movie.movie.name }}</p></a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

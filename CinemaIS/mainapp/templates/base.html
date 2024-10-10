@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="https://img.icons8.com/nolan/64/movie.png">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/general.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
+    {% block styles %}
+
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+
+    {% endblock %}
+
+    {% block scripts %}
+
+    {% endblock %}
+</body>
+</html>

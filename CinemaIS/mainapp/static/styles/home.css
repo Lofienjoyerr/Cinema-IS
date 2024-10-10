@@ -1,0 +1,242 @@
+.root{
+
+
+}
+.sect-header{
+    background-color: #FFFFFF18;
+    height: 10vh;
+}
+.header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 3vw;
+}
+.header-left{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+.header-logo{
+    height: 3vw;
+
+}
+.header-link{
+    color: white;
+    font: 2vw Ubuntu;
+    text-decoration: none;
+    transition: all 0.15s;
+}
+.header-link:hover{
+    color: pink;
+
+}
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+.header-right-link{
+    text-decoration: none;
+    transition: all 0.15s;
+}
+.header-right-link:hover .header-user-text{
+    color: pink;
+
+}
+.header-user-flex{
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+.header-user-img{
+    border-radius: 1000vw;
+    width: 3vw;
+    height: 6vh;
+    object-fit: cover;
+}
+.header-user-text{
+    color: white;
+    font: 1.5vw Rubik;
+    margin: 0;
+}
+
+.sect-slide{
+    height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 5vw;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.slide-text{
+    position: relative;
+    z-index: 10;
+    font: 2vw Ubuntu-light;
+    color: white;
+    margin: 0;
+    width: 30vw;
+}
+.slide-text span{
+    font: 2vw Ubuntu-bold;
+
+}
+.slide-img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 100vw;
+    height: 90vh;
+}
+
+.sect-main{
+  position: relative;
+  height: 265vh;
+  padding: 12vh 5vw;
+  overflow: hidden;
+  background-color: #FFFFFF1A;
+  box-sizing: border-box;
+}
+.main-content{
+    position: relative;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    gap: 15vh;
+}
+.content-row{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+.content-title{
+    color: white;
+    font: 3.5vw Ubuntu;
+    margin: 0;
+}
+.content-row-data{
+    display: flex;
+    gap: 4.5vw;
+}
+.content-row-data-img{
+    width: 11vw;
+    height: 33vh;
+    transition: all 0.7s;
+    border-radius: 1vw;
+}
+.content-row-data-img:hover{
+    transform: scale(1.6);
+
+}
+.main-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    overflow: hidden;
+}
+.main-ellipse{
+    position: absolute;
+    height: 150vh;
+}
+#main-ellipse1{
+  top: 0%;
+  left: 0%
+}
+#main-ellipse2{
+  top: 15%;
+  right: 0;
+}
+#main-ellipse3{
+  bottom: -15%;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.foot-wrapper{
+  position: relative;
+  z-index: 50;
+  display: flex;
+  gap: 5vw;
+  padding: 8vh 3vw;
+  padding-bottom: 1vh;
+  background-color: black;
+}
+.foot-logo{
+  margin-bottom: 12vh;
+  width: 5vw;
+}
+.foot-desc{
+  margin: 0;
+  font: 3vh Ubuntu;
+  color: #8D8D8D;
+  width: 18vw;
+  margin-bottom: 7vh;
+}
+.foot-soc{
+  display: flex;
+  gap: 2vw;
+  margin-bottom: 20vh;
+}
+.foot-soc img{
+  width: 3vw;
+
+}
+.foot-author{
+  font: 3vh Ubuntu;
+  color: #616161;
+}
+.foot-right{
+  display: flex;
+  gap: 4vw;
+}
+.foot-profile-col{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+.foot-profile{
+  display: flex;
+  align-items: center;
+  gap: 0.3vw;
+  font: 2vw Ubuntu;
+  color: white;
+  width: 10vw;
+
+}
+.foot-profile-img{
+    width: 2vw;
+    height: 5vh;
+}
+.foot-film-col{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+.foot-link{
+  color: #797979;
+  text-decoration: none;
+  font: 1.5vw Ubuntu;
+}
+.foot-header{
+  color: white;
+  font: 2vw Ubuntu;
+  margin: 0;
+}
+.foot-film-col a{
+  text-decoration: none;
+
+}
+.foot-link{
+    margin: 0;
+
+}
