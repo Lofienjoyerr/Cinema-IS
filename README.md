@@ -15,7 +15,7 @@
 6. Просмотр купленных билетов в профиле
 7. Блокировка купленных мест для других пользователей
 
-Макет дизайна был взят с https://www.figma.com/design/1GNofXvU3tbKHXLD5LQ9hx/OnAir?node-id=159-3283&node-type=frame&t=6abTst0HW3vZVZm2-0
+Макет дизайна был взят с ![figma](https://www.figma.com/design/1GNofXvU3tbKHXLD5LQ9hx/OnAir?node-id=159-3283&node-type=frame&t=6abTst0HW3vZVZm2-0)
 
 Скриншоты:
 ![image](https://github.com/user-attachments/assets/fdf4a948-b4d9-4a4b-ac38-18419b40c932)
